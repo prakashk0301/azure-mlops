@@ -1,0 +1,45 @@
+project:
+  name: churn-prediction-mlops
+  version: 1.0.0
+  description: ML pipeline for customer churn prediction with Azure integration
+
+data:
+  input_path: data/raw
+  processed_path: data/processed
+  test_size: 0.2
+  random_state: 42
+
+preprocessing:
+  scaling_method: standard
+  handle_missing: mean
+  feature_selection: true
+  max_features: 20
+
+model:
+  type: random_forest
+  hyperparameters:
+    n_estimators: 100
+    max_depth: 10
+    min_samples_split: 5
+    random_state: 42
+
+training:
+  batch_size: 32
+  epochs: 100
+  learning_rate: 0.001
+  validation_split: 0.1
+
+evaluation:
+  metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1
+    - roc_auc
+  threshold: 0.7
+
+azure:
+  resource_group: churncintainer
+  workspace_name: churn-mlops-ws
+  compute_target: gpu-cluster
+  registry_name: churncintainer
