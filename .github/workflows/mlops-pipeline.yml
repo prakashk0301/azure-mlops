@@ -1,7 +1,6 @@
 name: MLOps CI/CD Pipeline
 
 permissions:
-  id-token: write
   contents: read
 
 on:
