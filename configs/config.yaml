@@ -43,4 +43,3 @@ azure:
   workspace_name: churn-mlops-ws
   compute_target: gpu-cluster
   registry_name: churncintainer
-
